@@ -31,12 +31,15 @@ try:
         """.format(
             str(user)
         )
-        user1 = driver.find_element(
-            By.XPATH,
-            '//*[@id="pane-side"]/div[1]/div/div/div/div/div/div[2]/div[1]/div[1]/span/span[@title="{}"]'.format(
-                user
-            ),
-        )
+        try:
+            user1 = driver.find_element(
+                By.XPATH,
+                '//*[@id="pane-side"]/div[1]/div/div/div/div/div/div[2]/div[1]/div[1]/span/span[@title="{}"]'.format(
+                    user
+                ),
+            )
+        except:
+            print('{} not found in your contect list'.format(user))
         # user1 = driver.find_elements(
         #     By.XPATH,
         #     '//*[@id="pane-side"]/div[1]/div/div/div/div/div/div[2]/div[1]/div[1]/span/span',
